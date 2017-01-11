@@ -1,0 +1,17 @@
+ <!--
+ - SPFBL DECODER
+ - Examples:
+ - 2017-01-11T07:49:12.292-0500 00054 SERVERADM ADMIN 0:0:0:0:0:0:0:1 UNKNOWN: CLIENT ADD 127.0.0.1/32 set.rn.gov.br SPFBL postmaster@domain.com => ADDED domain.com:127.0.0.1/32 SPFBL UNDEFINED <postmaster@domain.com>\n 
+ - 2017-01-11T10:07:23.693-0300 00101 SPFTCP003 SPFBL 10.0.0.1 domain.com postmaster@domain.com: SPF '198.2.182.168' 'bounce-mc.us2_5963790.1283417-user=domain.com@mail168.suw16.rsgsv.net' 'mail168.suw16.rsgsv.net' 'user@domain.com' => BLOCKED
+ -->
+<decoder name="spfbl">
+  <program_name>^SPFBL$</program_name>
+</decoder>
+
+<!--
+<decoder name="spfbl-shutdown">
+  <parent>spfbl</parent>
+  <regex> SERVERADM ADMIN (\d+.\d+.\d+.\d+)</regex>
+  <order>srcip</order>
+</decoder>
+ -->

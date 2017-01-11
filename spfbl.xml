@@ -1,0 +1,115 @@
+<!-- @(#) $Id: ./etc/rule/spfbl.xml, 11/01/2017 dcid Exp $
+
+  -  Official SPFBL rule for OSSEC.
+  -
+  -  Author: Noilson Caio
+  -
+  -  This program is a free software; you can redistribute it
+  -  and/or modify it under the terms of the GNU General Public
+  -  License (version 3) as published by the FSF - Free Software
+  -  Foundation.
+  -
+  -  License details: http://www.ossec.net/en/licensing.html
+  -->
+<group name="spfbl,">
+      
+ <rule id="6660" level="0">
+    <decoded_as>spfbl</decoded_as>
+    <description>Grouping of SPFBL rule.</description>
+  </rule>
+
+  <rule id="6661" level="2">
+     <if_sid>6660</if_sid>
+     <regex>=> PASS</regex>
+     <description>SPFBL PASS log.</description>
+  </rule>
+
+  <rule id="6662" level="2">
+     <if_sid>6660</if_sid>
+     <regex>=> BLOCKED</regex>
+     <description>SPFBL BLOCKED log.</description>
+  </rule>	   
+
+  <rule id="6663" level="3">
+	  <if_sid>6660</if_sid>
+	  <regex>SHUTDOWN => OK</regex>
+	  <options>alert_by_email</options>
+	  <description>SPFBL SHUTDOWN</description>
+  </rule>
+
+  <rule id="6664" level="2">
+	  <if_sid>6660</if_sid>
+	  <regex>=> FLAG</regex>
+	  <description>SPFBL FLAG log.</description>
+  </rule>
+
+  <rule id="6665" level="2">
+	  <if_sid>6660</if_sid>
+	  <regex>=> INVALID</regex>
+	  <description>SPFBL INVALID log.</description>
+  </rule>
+
+  <rule id="6666" level="2">
+	  <if_sid>6660</if_sid>
+	  <regex>=> GREYLIST</regex>
+	  <description>SPFBL GREYLIST log.</description>
+  </rule>
+
+  <rule id="6667" level="2">
+	  <if_sid>6660</if_sid>
+	  <regex>=> FAIL</regex>
+	  <description>SPFBL FAIL log.</description>
+  </rule>
+
+  <rule id="6668" level="2">
+	  <if_sid>6660</if_sid>
+	  <regex>=> LISTED</regex>
+	  <description>SPFBL LISTED log.</description>
+  </rule>
+
+  <rule id="6669" level="4">
+	  <if_sid>6660</if_sid>
+	  <options>alert_by_email</options>
+	  <regex>BCKGROUND ERROR</regex>
+	  <description>SPFBL BCKGROUND ERROR log.</description>
+  </rule>
+
+  <rule id="6670" level="2">
+	  <if_sid>6660</if_sid>
+	  <regex>=> SOFTFAIL</regex>
+	  <description>SPFBL SOFTFAIL log.</description>
+  </rule>
+
+  <rule id="6671" level="2">
+          <if_sid>6660</if_sid>
+	  <regex>=> NEUTRAL</regex>
+          <description>SPFBL NEUTRAL log.</description>
+  </rule>
+
+  <rule id="6672" level="2">
+	  <if_sid>6660</if_sid>
+	  <regex>=> NONE</regex>
+	  <description>SPFBL NONE log.</description>
+  </rule>
+
+  <rule id="6673" level="2">
+	  <if_sid>6660</if_sid>
+	  <regex>=> SPAM</regex>
+	  <description>SPFBL SPAM log.</description>
+  </rule>
+
+  <rule id="6674" level="2">
+	  <if_sid>6660</if_sid>
+	  <regex>=> SPAMTRAP</regex>
+	  <description>SPFBL SPAMTRAP log.</description>
+  </rule>
+
+  <rule id="6675" level="3">
+          <if_sid>6660</if_sid>
+	  <options>alert_by_email</options>
+          <regex>CLIENT ADD</regex>
+          <description>SPFBL CLIENT ADD log.</description>
+  </rule>
+
+</group>
+<!-- EOF -->

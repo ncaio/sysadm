@@ -1,0 +1,143 @@
+[ INTRODUÇÃO ]
+
+No meu dia dia costumo lidar com grandes massas de dados e grandes estruturas de diretórios, por exemplo. E a um certo tempo venho suspeitando de um pequeno BUG no interpretador bash, ou não. E a melhor forma que eu tenho de explicar é mostrando um exemplo corriqueiro. 
+
+[ Criação de estrutura de diretório ]
+
+Uma tarefa comum de criar uma estrutura de 0-9 em vários níveis. como por exemplo:
+
+Exemplo 1 - 2 níveis
+
+.
+|-- 0
+|   |-- 0
+|   |-- 1
+|   |-- 2
+|   |-- 3
+|   |-- 4
+|   |-- 5
+|   |-- 6
+|   |-- 7
+|   |-- 8
+|   `-- 9
+|-- 1
+|   |-- 0
+|   |-- 1
+|   |-- 2
+|   |-- 3
+|   |-- 4
+|   |-- 5
+|   |-- 6
+|   |-- 7
+|   |-- 8
+|   `-- 9
+|-- 2
+|   |-- 0
+|   |-- 1
+|   |-- 2
+|   |-- 3
+|   |-- 4
+|   |-- 5
+|   |-- 6
+|   |-- 7
+|   |-- 8
+|   `-- 9
+|-- 3
+|   |-- 0
+|   |-- 1
+|   |-- 2
+|   |-- 3
+|   |-- 4
+|   |-- 5
+|   |-- 6
+|   |-- 7
+|   |-- 8
+|   `-- 9
+|-- 4
+|   |-- 0
+|   |-- 1
+|   |-- 2
+|   |-- 3
+|   |-- 4
+|   |-- 5
+|   |-- 6
+|   |-- 7
+|   |-- 8
+|   `-- 9
+|-- 5
+|   |-- 0
+|   |-- 1
+|   |-- 2
+|   |-- 3
+|   |-- 4
+|   |-- 5
+|   |-- 6
+|   |-- 7
+|   |-- 8
+|   `-- 9
+|-- 6
+|   |-- 0
+|   |-- 1
+|   |-- 2
+|   |-- 3
+|   |-- 4
+|   |-- 5
+|   |-- 6
+|   |-- 7
+|   |-- 8
+|   `-- 9
+|-- 7
+|   |-- 0
+|   |-- 1
+|   |-- 2
+|   |-- 3
+|   |-- 4
+|   |-- 5
+|   |-- 6
+|   |-- 7
+|   |-- 8
+|   `-- 9
+|-- 8
+|   |-- 0
+|   |-- 1
+|   |-- 2
+|   |-- 3
+|   |-- 4
+|   |-- 5
+|   |-- 6
+|   |-- 7
+|   |-- 8
+|   `-- 9
+`-- 9
+    |-- 0
+    |-- 1
+    |-- 2
+    |-- 3
+    |-- 4
+    |-- 5
+    |-- 6
+    |-- 7
+    |-- 8
+    `-- 9
+
+110 directories, 0 files
+
+Existem 'n' formas de criar sequencias em shell, na maioria do tempo utilizo 'curly braces' '{}' para este serviço. A tarefa anterior é um mkdir -p {0..9}/{0..9}/
+
+Para não ter que escrever muito e correr o risco de não passar bem a situação, assista este vídeo e depois leia os comentários.
+
+[ Estágio 1 - 5 níveis de estrutura 0-9 ]
+Bem, não tenho o que falar. Funcionou e 5 níveis foram criados
+
+[ Estágio 2 - 6 níveis de estrutura 0-9 ]
+
+"Argument list too long"
+Hum... Geralmente essa mensagem faz você parar e procurar por outra alternativa (split). Ela geralmente surge quando um comando (exec()) estoura o tamanho total da 'lista de argumentos' -> ARG_MAX -> geralmente 2097152 bytes.
+Bem, a proteção funcionou.
+
+[ Estágio 3 - 7 níveis de estrutura 0-9 ]
+
+"Cannot allocate memory"
+Se 6 níveis deram "Argument list too long", por qual motivo toda a memória foi consumida ? ¬¬
+
+[ Estágio 4 - 8 níveis de estrutura 0-9 ]

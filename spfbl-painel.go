@@ -53,7 +53,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	if strings.Contains(saida[i], "yourhostnamehere") {
 	field := strings.Fields(saida[i])
 	date := (strings.Replace(field[0], "T", " hora: ", -1))
-	//if strings.Contains(field[14], "spfbl.set.rn.gov.br") {
 //
 //	PASS
 //
@@ -92,10 +91,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 //
 //	OTHERS
 //
-	} //else {
-	//fmt.Fprintf(w, "<div style=background-color:cyan align=left><p><font size=3 face=arial>Em <strong>%s</strong> o remetente: <strong>%s</strong> MTA: <strong>%s</strong> foi detectado como: <strong>%s</strong></font></p></div>",date,field[9],field[10],field[13])
-	//}
-	//fmt.Fprintf(w,"<hr>")
+	}
 	}
 	}
 }

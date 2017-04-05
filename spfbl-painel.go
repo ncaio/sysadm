@@ -50,7 +50,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 //	LOOP
 //
 	for i := range saida {
-	if strings.Contains(saida[i], "spfbl.set.rn.gov.br") {
+	if strings.Contains(saida[i], "yourhostnamehere") {
 	field := strings.Fields(saida[i])
 	date := (strings.Replace(field[0], "T", " hora: ", -1))
 	//if strings.Contains(field[14], "spfbl.set.rn.gov.br") {

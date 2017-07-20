@@ -49,21 +49,22 @@ do
 	if [ "$_key" == "0" ]
 	then
 		_name=$(echo "$_line" | cut -d':' -f 2 | cut -d'<' -f 1 | tr -d '"' | sed 's/^ *//')
-		_firstname="$(echo "$_name" | awk '{print $1}')"
+		_firstname="$(echo "$_name" | awk '{print $1}' | tr -d ',')"
 		if [ -z "$_firstname" ]
 		then
 			_firstname="First Name"
 		fi
-		_lastname="$(echo $_name | awk '{print $NF}')"
-		_position="$(echo "$_line"|awk '{print $1}'|tr -d ':')"
+		_lastname="$(echo $_name | awk '{print $NF}' | tr -d ',')"
+		_position="$(echo "$_line"|awk '{print $1}'| tr -d ':')"
 		if [ -z "$_position" ]
 		then
 			_position="Author"
 		fi
 		_email="$(echo "$_line" | grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b")"
-		if [ ! -z "$_firstname" ] && [ ! -z "$_lastname" ] && [ ! -z "$_position" ] && [ ! -z "$_email" ]
+		_fmail="$(echo "$_email" | head -n 1)"
+		if [ ! -z "$_firstname" ] && [ ! -z "$_lastname" ] && [ ! -z "$_position" ] && [ ! -z "$_fmail" ]
 		then
-			echo "$_firstname,$_lastname,$_position,$_email"
+			echo "$_firstname,$_lastname,$_position,$_fmail"
 		fi
 	fi
 done < "$_list"

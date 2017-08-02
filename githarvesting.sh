@@ -1,7 +1,9 @@
 #!/bin/bash
 #
 #	1 - realizar o clone do repositório localmente. Ex: git clone https://github.com/reddit/reddit.git
+#		Clone your repository.
 #	2 - Executar este script contra o repositório: ./githarvesting.sh /caminho/para/repositório
+#		Execute githarvesting.sh against repository path
 #	3 - Opicional - redirecionar a saída padrão do script para um arquivo .csv
 #
 #

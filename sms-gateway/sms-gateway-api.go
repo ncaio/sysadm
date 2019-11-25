@@ -37,7 +37,7 @@ func main() {
 	router.HandleFunc("/", Index).Methods("GET")
 	router.HandleFunc("/sms/{smsID}/{smsNum}", Sms).Methods("GET")
 	router.HandleFunc("/url/{url}/services/email/confirmar/{chave}/{smsNum}", Smsurl).Methods("GET")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(http.ListenAndServe(":8888", router))
 }
 
 //
